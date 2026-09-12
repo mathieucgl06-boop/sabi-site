@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SABI — San Andreas Bureau of Investigation</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080c12;
+            color: #ffffff;
+        }
+
+        /* NAVIGATION */
+
+        header {
+            background: #0d131c;
+            border-bottom: 1px solid #263241;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-symbol {
+            width: 45px;
+            height: 45px;
+            border: 2px solid #c9d1d9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .brand h1 {
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        .brand span {
+            display: block;
+            font-size: 11px;
+            color: #9da8b5;
+            margin-top: 3px;
+        }
+
+        nav a {
+            color: #c9d1d9;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            padding: 80px 7%;
+            background:
+                linear-gradient(
+                    rgba(8,12,18,0.88),
+                    rgba(8,12,18,0.96)
+                );
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #526274;
+            padding: 8px 14px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #aeb8c4;
+            margin-bottom: 25px;
+        }
+
+        .hero h2 {
+            font-size: 55px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h2 span {
+            color: #d7dde4;
+        }
+
+        .hero p {
+            color: #aeb8c4;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 14px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 3px;
+        }
+
+        .button-primary {
+            background: #ffffff;
+            color: #080c12;
+        }
+
+        .button-primary:hover {
+            background: #dce2e8;
+        }
+
+        .button-secondary {
+            border: 1px solid #526274;
+            color: #ffffff;
+        }
+
+        .button-secondary:hover {
+            background: #151e29;
+        }
+
+        /* SECTION */
+
+        section {
+            padding: 80px 7%;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #8e9baa;
+            letter-spacing: 2px;
+            font-size: 11px;
+        }
+
+        .section-title h3 {
+            font-size: 32px;
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: #929eac;
+            max-width: 700px;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        /* CARDS */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #0e151f;
+            border: 1px solid #263241;
+            padding: 30px;
+            min-height: 190px;
+        }
+
+        .card-number {
+            color: #6f7c8b;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .card h4 {
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #919daa;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* DOSSIER */
+
+        .dossier {
+            background: #0d131c;
+            border-top: 1px solid #263241;
+            border-bottom: 1px solid #263241;
+        }
+
+        .dossier-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+            border: 1px solid #303d4c;
+            padding: 35px;
+            background: #101821;
+        }
+
+        .dossier-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .dossier-box p {
+            color: #929eac;
+            line-height: 1.6;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #070a0f;
+            border-top: 1px solid #202b37;
+            padding: 35px 7%;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            color: #697582;
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 850px) {
+
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav {
+                text-align: center;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+
+            .hero h2 {
+                font-size: 40px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .dossier-box {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="brand">
+
+        <div class="brand-symbol">
+            SABI
+        </div>
+
+        <div>
+            <h1>SAN ANDREAS</h1>
+            <span>BUREAU OF INVESTIGATION</span>
+        </div>
+
+    </div>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#bureau">Le Bureau</a>
+        <a href="#missions">Missions</a>
+        <a href="#demande">Demande</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- ACCUEIL -->
+
+    <section class="hero" id="accueil">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                AGENCE D'INVESTIGATION — SAN ANDREAS
+            </div>
+
+            <h2>
+                SAN ANDREAS<br>
+                <span>BUREAU OF INVESTIGATION</span>
+            </h2>
+
+            <p>
+                Une institution spécialisée dans l'investigation,
+                l'analyse et le traitement des affaires complexes
+                et sensibles sur le territoire de San Andreas.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#demande" class="button button-primary">
+                    Déposer une demande
+                </a>
+
+                <a href="#missions" class="button button-secondary">
+                    Découvrir nos missions
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRESENTATION -->
+
+    <section id="bureau">
+
+        <div class="section-title">
+
+            <small>LE BUREAU</small>
+
+            <h3>Une approche spécialisée de l'investigation</h3>
+
+            <p>
+                Le SABI intervient sur les affaires nécessitant
+                une analyse approfondie, une coordination
+                interservices ou un niveau particulier de
+                confidentialité.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- MISSIONS -->
+
+    <section id="missions">
+
+        <div class="section-title">
+
+            <small>NOS DOMAINES D'INTERVENTION</small>
+
+            <h3>Des enquêtes au cœur des affaires sensibles</h3>
+
+        </div>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="card-number">01 — ENQUÊTES</div>
+
+                <h4>Affaires complexes</h4>
+
+                <p>
+                    Traitement des dossiers nécessitant
+                    une investigation approfondie et une
+                    analyse de plusieurs éléments.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">02 — INTÉGRITÉ</div>
+
+                <h4>Corruption & abus de pouvoir</h4>
+
+                <p>
+                    Analyse des signalements concernant
+                    des actes de corruption, de fraude
+                    ou d'abus de fonction.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">03 — RENSEIGNEMENT</div>
+
+                <h4>Analyse criminelle</h4>
+
+                <p>
+                    Collecte, analyse et exploitation
+                    d'informations utiles à la compréhension
+                    d'une affaire.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">04 — COORDINATION</div>
+
+                <h4>Affaires interservices</h4>
+
+                <p>
+                    Coordination avec les institutions
+                    compétentes lorsque la situation
+                    nécessite plusieurs services.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">05 — CONFIDENTIALITÉ</div>
+
+                <h4>Affaires sensibles</h4>
+
+                <p>
+                    Traitement discret des dossiers dont
+                    la nature nécessite une attention
+                    particulière.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-number">06 — EXPERTISE</div>
+
+                <h4>Contre-enquête</h4>
+
+                <p>
+                    Réexamen d'éléments ou de dossiers
+                    lorsque des circonstances particulières
+                    le justifient.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DEMANDE -->
+
+    <section class="dossier" id="demande">
+
+        <div class="dossier-box">
+
+            <div>
+
+                <h3>Vous souhaitez saisir le SABI ?</h3>
+
+                <p>
+                    Toute demande fait l'objet d'une évaluation
+                    avant une éventuelle prise en charge par
+                    le Bureau.
+                </p>
+
+            </div>
+
+            <a href="#" class="button button-primary">
+                Déposer une demande
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div>
+        © 2026 San Andreas Bureau of Investigation
+    </div>
+
+    <div>
+        PORTAIL INSTITUTIONNEL — SABI
+    </div>
+
+</footer>
+
+</body>
+</html>
